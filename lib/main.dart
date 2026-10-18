@@ -48,8 +48,7 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
-
-  @override
+@override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
@@ -57,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    setState(() {
+    setState((){
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
@@ -104,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: .center,
           children: [
-            const Text('You have pushed the button this many times:'),
+            const Text('bs it pressed the button this many times:'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
