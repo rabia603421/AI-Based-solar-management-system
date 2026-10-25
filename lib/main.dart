@@ -1,106 +1,152 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
- const MyApp({Key? key}) : super(key: key);
- @override
- Widget TextNew(String abc){
-  return Text(
-    abc,
-    style: TextStyle(
-      color: Colors.white,
-      fontSize: 20,
-    ),
-  );
- }
+class MyApp extends StatefulWidget {
+   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+ bool hidepassword = true;
+  @override
   Widget build(BuildContext context) {
-     return MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        title: Text('my app'),
+        
+          
+          backgroundColor: const Color.fromARGB(255, 27, 134, 221),
+          foregroundColor: Colors.white,
+          centerTitle: true,
+        
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.login),
+              SizedBox(width: 8),
+              Text('sign in'),
+             
+            ],
+
+          )
+            
         ),
-        body: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.all(10),
-                  color: Colors.deepOrange,
-                  height: 100,
-                  width: 100,
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.all(10),
-                  color: Colors.red,
-                  height: 100,
-                  width: 100,
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.all(10),
-                  color: Colors.blue,
-                  height: 100,
-                  width: 100,
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.all(10), 
-                  color: Colors.black38,
-                  height: 100,
-                  width: 100,
-                ),
-                
+        body: Container(
+          
+           width: double.infinity,
+           height: double.infinity,
+         decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                const Color.fromARGB(255, 1, 50, 90),
+                Colors.white,
               ],
             ),
-            Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(10),
-              color: Colors.deepOrange,
-              height: 100,
-              width: 100,
-              child: TextNew('hy'),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(10),
-              color: Colors.red,
-              height: 100,
-              width: 100,
-              child: TextNew('bs it going'),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(10),
-              color: Colors.blue,
-              height: 100,
-              width: 100,
-              child: TextNew('what about you?'),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(10), 
-              color: Colors.black38,
-              height: 100,
-              width: 100,
-              child: TextNew('i am doing well'),
-            ),
+          ),
+         child: Padding(
+           padding: const EdgeInsets.all(24.0),
+           child: Column (
             
-          ],
-        ),
-          ],
-        ),
-         
+            children: [
+              SizedBox(height: 100),
+              Text(
+              'Welcome back!', 
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+               color: Colors.black),
+               ),
+               Text(
+              'Please sign in to continue...',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+           
+            )
+              
+               ),
+               SizedBox(height: 100),
+               TextField(
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  prefixIcon: Icon(Icons.email),
+                  hintText: 'example@email.com',
+                  icon: Icon(Icons.email),
+                  
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                  ), 
+                ),
+           
+               ),
+                SizedBox(height: 20),
+                TextField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        hidepassword ? Icons.visibility_off : Icons.visibility,
+                      ),
+                      onPressed: () {setState(() {
+                          hidepassword = !hidepassword;
+                        });},
+                    ),
+
+                    hintText: 'Enter your password',
+                    icon: Icon(Icons.lock),
+                    
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.black,
+                      ),
+                    ), 
+                  ),
+                  obscureText: hidepassword,
+                ),
+                SizedBox(height: 30),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                gradient: LinearGradient( colors:
+                  [
+                    const Color.fromARGB(255, 142, 196, 241),
+                    const Color.fromARGB(255, 148, 213, 243)
+                  ]
+                )
+              ),
+              child: ElevatedButton(
+                 style: ElevatedButton.styleFrom(
+                   backgroundColor: Colors.transparent,
+                  
+                 ),
+                onPressed: () {},child: Text('sign in'),
+               
+              
+                         ),
+            )
+            ]
+            
+             
+            
+                   ),
+         )
       ),
+      )
     );
+
   }
 }
