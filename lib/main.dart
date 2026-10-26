@@ -14,45 +14,67 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('My Flutter App'),
+          title: const Text('UI design'),
         ),
-        body: Column(
+        body: Row(
           children: [
-            Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 150,
-                  color: Colors.blue,
-                ),
-                Row(
-              children: [
-                Expanded(child: Container( height: 50, color: Colors.red,)),
-                Expanded(child: Container( height: 50, color: const Color.fromARGB(255, 48, 16, 13),)),
-                Expanded(child: Container( height: 50, color: const Color.fromARGB(255, 17, 9, 8),)),
-              ],
-            ),
-
-                 Positioned(
-                  top: 100,
-                  left: 50,
-                  child: Text(
-                    'My Profile',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      width: double.infinity,
+                      color: const Color.fromARGB(255, 12, 12, 12),
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    flex: 3,
+                  
+                    child: Container(
+                      width: double.infinity,
+                      color: const Color.fromARGB(255, 80, 44, 44),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      width: double.infinity,
+                      color: const Color.fromARGB(255, 168, 23, 23),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Row(
-              children: [
-                Expanded(child: Container( height: 50, color: Colors.red,)),
-                Expanded(child: Container( height: 50, color: const Color.fromARGB(255, 48, 16, 13),)),
-                Expanded(child: Container( height: 50, color: const Color.fromARGB(255, 17, 9, 8),)),
-              ],
+            Expanded(
+              child: Column(
+                children: [
+                  Expanded(
+                    
+                    child: Container(
+                      color: const Color.fromARGB(255, 196, 184, 184),
+                    ),
+                  ),
+                  Expanded(
+                    
+                    child: Container(
+                      color: const Color.fromARGB(255, 128, 12, 12),
+                    ),
+                  ),
+                   Expanded(
+                    
+                    child: Container(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                  Expanded(
+                    
+                    child: Container(
+                      color: const Color.fromARGB(255, 23, 168, 67),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
